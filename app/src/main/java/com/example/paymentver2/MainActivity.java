@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
-    private String zp_trans_id, amount, app_trans_id, m_refund_id;
+    private String zp_trans_id, app_trans_id, m_refund_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +38,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         CreateOrder orderApi = new CreateOrder();
         QueryOrder query = new QueryOrder();
         RefundOrder refund = new RefundOrder();
 
-        amount = binding.txtAmount.getText().toString();
+
 
         // cấp all quyền
         StrictMode.ThreadPolicy policy = new
@@ -58,9 +57,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 try {
-                    JSONObject data = orderApi.createOrder(amount);
+                    JSONObject data = orderApi.createOrder(binding.txtAmount.getText().toString(),orderApi);
                     String code = data.getString("return_code");
-                    app_trans_id = data.getString("app_trans_id");
                     Toast.makeText(getApplicationContext(), "return_code: " + code, Toast.LENGTH_LONG).show();
 
                     if (code.equals("1")) {
@@ -84,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String status;
                 try {
+                    app_trans_id=orderApi.getApptransId();
                     JSONObject data = query.queryOrder(app_trans_id);
                     status = data.getString("return_message");
                     zp_trans_id = data.getString("zp_trans_id");

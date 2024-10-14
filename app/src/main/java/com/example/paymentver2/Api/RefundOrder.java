@@ -12,7 +12,7 @@ import okhttp3.FormBody;
 import okhttp3.RequestBody;
 
 public class RefundOrder {
-    String fake_RefundId;
+    private String fake_RefundId;
 
     public String getmRefundId() {
         return fake_RefundId;
@@ -81,7 +81,6 @@ public class RefundOrder {
         // Gửi request đến API hoàn tiền
         JSONObject data = HttpProvider.sendPost(AppInfo.URL_REFUND, formBody);
         Log.d("RefundOrderResponse", data.toString());
-
         fake_RefundId = refundData.mRefundId;
     }
 }

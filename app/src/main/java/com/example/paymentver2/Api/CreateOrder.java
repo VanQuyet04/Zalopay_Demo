@@ -14,6 +14,11 @@ import okhttp3.RequestBody;
 
 public class CreateOrder {
 
+    private String mAppTransId;
+
+    public String getApptransId() {
+        return mAppTransId;
+    }
 
     private static class CreateOrderData {
         String AppId;
@@ -27,7 +32,7 @@ public class CreateOrder {
         String Description;
         String Mac;
 
-        private CreateOrderData(String amount) throws Exception {
+        private CreateOrderData(String amount, CreateOrder createOrder) throws Exception {
             long appTime = new Date().getTime();
             AppId = String.valueOf(AppInfo.APP_ID);
             AppUser = "Android_Demo";
@@ -48,13 +53,20 @@ public class CreateOrder {
                     this.Items);
             Mac = Helpers.getMac(AppInfo.MAC_KEY, inputHMac);
 
+            createOrder.mAppTransId = AppTransId;
+
+            Log.d("CreateOrderData", "AppId: " + AppId);
+            Log.d("CreateOrderData", "AppTransId: " + AppTransId);
+            Log.d("CreateOrderData", "Mac: " + Mac);
+
+
         }
 
     }
 
-    public JSONObject createOrder(String amount) throws Exception {
+    public JSONObject createOrder(String amount,CreateOrder createOrder) throws Exception {
 
-        CreateOrderData orderData = new CreateOrderData(amount);
+        CreateOrderData orderData = new CreateOrderData(amount,createOrder);
         RequestBody formBody = new FormBody.Builder()
                 .add("app_id", orderData.AppId)
                 .add("app_user", orderData.AppUser)
