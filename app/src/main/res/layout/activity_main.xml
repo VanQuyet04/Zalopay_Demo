@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/lblAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+    <!-- EditText for Input Amount -->
+    <EditText
+        android:id="@+id/txtAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter amount"
+        android:inputType="number"
+        android:padding="10dp"
+        android:textSize="16sp"
+        tools:ignore="Autofill,HardcodedText" />
+
+    <!-- Button to Create Order -->
+    <Button
+        android:id="@+id/btnCreateOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Order"
+        android:textSize="16sp"
+        android:padding="10dp"
+        tools:ignore="HardcodedText" />
+
+    <!-- TextView for Token Label -->
+    <TextView
+        android:id="@+id/lblZpTransToken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ZP Transaction Token"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+    <!-- TextView to Show Generated Token -->
+    <TextView
+        android:id="@+id/txtToken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generated token will appear here"
+        android:textSize="16sp"
+        android:padding="10dp"
+        tools:ignore="HardcodedText" />
+
+
+    <Button
+        android:id="@+id/btnCheckStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check Status"
+        android:textSize="16sp"
+        android:padding="10dp"
+        tools:ignore="HardcodedText" />
+    <Button
+        android:id="@+id/btnRefund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Request refund"
+        android:textSize="16sp"
+        android:padding="10dp"
+        tools:ignore="HardcodedText" />
+    <EditText
+        android:id="@+id/txtDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter descreiption"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:textSize="16sp"
+        tools:ignore="Autofill,HardcodedText,TextFields" />
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generated token will appear here"
+        android:textSize="16sp"
+        android:padding="10dp"
+        tools:ignore="HardcodedText" />
+    <Button
+        android:id="@+id/btnQueryRefund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Request query refund"
+        android:textSize="16sp"
+        android:padding="10dp"
+        tools:ignore="HardcodedText" />
+    <ImageView
+        android:id="@+id/qrImageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        tools:ignore="ContentDescription" />
+</LinearLayout>
