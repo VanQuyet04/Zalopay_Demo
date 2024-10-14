@@ -37,7 +37,6 @@ public class QueryOrder {
                 .add("mac", queryOrderData.Mac)
                 .build();
 
-        JSONObject data = HttpProvider.sendPost(AppInfo.URL_QUERY_STATUS, formBody);
-        return data;
+        return HttpProvider.sendPost(AppInfo.URL_QUERY_STATUS, formBody);
     }
 }
